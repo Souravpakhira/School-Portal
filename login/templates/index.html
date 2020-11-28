@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock title %}
+{% block homeactive %}
+active
+{% endblock homeactive %}
+
+
+{% block body %}
+{% if user.is_authenticated %}
+{% if request.user.user_type == 'S' %}
+
+<h1>Student Dashboard</h1>
+{% endif %}
+{% if request.user.user_type == 'T' %}
+<h1>Teacher Dashboard</h1>
+{% endif %}
+{% else %}
+<h1>School website</h1>
+Admin page: <br>
+email = admin@gmail.com <br>
+password = 123456 <br>
+Student portal: <br>
+email = student@gmail.com <br>
+password = 123456 <br>
+Teacher portal: <br>
+email = teacher@gmail.com <br>
+password = 123456
+{% endif %}
+{% endblock body %}
